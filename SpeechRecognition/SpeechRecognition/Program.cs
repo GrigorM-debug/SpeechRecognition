@@ -20,7 +20,11 @@ namespace SpeechRecognition
             recognizer = new SpeechRecognitionEngine(new System.Globalization.CultureInfo(languageCode));
 
             // Create and load a dictation grammar.  
-            recognizer.LoadGrammar(new DictationGrammar());
+            //recognizer.LoadGrammar(new DictationGrammar());
+            GrammarBuilder builder = new GrammarBuilder();
+            builder.Append(new Choices("start", "stop", "exit", "test"));
+            Grammar customGrammar = new Grammar(builder);
+            recognizer.LoadGrammar(customGrammar);
 
             // Add a handler for the speech recognized event.  
             recognizer.SpeechRecognized +=
