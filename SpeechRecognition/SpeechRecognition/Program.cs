@@ -14,7 +14,7 @@ namespace SpeechRecognition
 
             string filePath = "voicetypedtext.txt";
 
-            StreamWriter writer = new StreamWriter(filePath);
+            fileWriter = new StreamWriter(filePath);
 
 
             recognizer = new SpeechRecognitionEngine(new System.Globalization.CultureInfo(languageCode));
